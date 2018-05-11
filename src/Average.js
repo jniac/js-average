@@ -1,3 +1,9 @@
+/*
+
+    https://github.com/jniac/js-average
+
+*/
+
 export const through = (threshold, value, old) => old < threshold && value >= threshold ? 1 : old > threshold && value <= threshold ? -1 : 0
 
 export default class Average {
