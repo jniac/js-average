@@ -6,7 +6,7 @@
 
 export const through = (threshold, value, old) => old < threshold && value >= threshold ? 1 : old > threshold && value <= threshold ? -1 : 0
 
-export default class Average {
+export default class ValueOver {
 
 	constructor({ value = 0, size = 10, nDerivative = 1 } = {}) {
 
@@ -19,7 +19,7 @@ export default class Average {
 
         let values = new Array(size).fill(value)
 
-        let derivative = nDerivative > 0 ? new Average({ value: 0, size, nDerivative: nDerivative - 1 }) : null
+        let derivative = nDerivative > 0 ? new ValueOver({ value: 0, size, nDerivative: nDerivative - 1 }) : null
 
         Object.assign(this, {
 
