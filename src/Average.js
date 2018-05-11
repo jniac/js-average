@@ -79,6 +79,26 @@ export default class Average {
 
     set newValue(value) { this.setNewValue(value) }
 
+	reset(value = 0) {
+
+		let { size, array } = this
+
+		array.fill(value)
+
+        Object.assign(this, {
+
+            value,
+            valueOld: value,
+            average: value,
+            averageOld: value,
+
+            sum: value * size,
+            delta: 0,
+
+        })
+
+	}
+
 	through(threshold) {
 
         let { value, valueOld:old } = this
