@@ -69,6 +69,10 @@ export default class Average {
 
 	}
 
+    get newValue() { return this.value }
+    
+    set newValue(value) { this.setNewValue(value) }
+
 	through(threshold) {
 
         let { value, valueOld:old } = this
