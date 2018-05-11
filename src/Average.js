@@ -8,22 +8,22 @@ export const through = (threshold, value, old) => old < threshold && value >= th
 
 export default class Average {
 
-	constructor({ value = 0, length = 10, nDerivative = 1 } = {}) {
+	constructor({ value = 0, size = 10, nDerivative = 1 } = {}) {
 
         let valueOld = value
         let average = value
         let averageOld = value
 
         let delta = 0
-        let sum = value * length
+        let sum = value * size
 
-        let values = new Array(length).fill(value)
+        let values = new Array(size).fill(value)
 
-        let derivative = nDerivative > 0 ? new Average({ value: 0, length, nDerivative: nDerivative - 1 }) : null
+        let derivative = nDerivative > 0 ? new Average({ value: 0, size, nDerivative: nDerivative - 1 }) : null
 
         Object.assign(this, {
 
-            length,
+            size,
 
             value,
             valueOld,
@@ -46,13 +46,13 @@ export default class Average {
 
         value = value || 0
 
-        let { value:valueOld, average:averageOld, length, sum, values, derivative } = this
+        let { value:valueOld, average:averageOld, size, sum, values, derivative } = this
 
         let delta = value - valueOld
 
         sum += -values.shift() + value
 
-        let average = sum / length
+        let average = sum / size
 
         values.push(value)
 

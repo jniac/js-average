@@ -4,7 +4,7 @@
 ```javascript
 import Average from '../src/Average.js'
 
-let average = new Average({ value: 0, length: 5, nDerivative: 1 })
+let average = new Average({ value: 0, size: 5, nDerivative: 1 })
 
 average.newValue = 8        // or average.setNewValue(8)
 average.newValue = 12
