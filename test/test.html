@@ -9,6 +9,8 @@
 
             import Average from '../src/Average.js'
 
+            Object.assign(window, { Average })
+
             let a = new Average()
 
             a.setNewValue(8)
@@ -19,7 +21,7 @@
 
             a.setNewValue(6)
             console.log(a.through(10))
-            
+
             console.log(a)
 
         </script>

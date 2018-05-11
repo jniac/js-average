@@ -11,7 +11,7 @@ export default class Average {
         let delta = 0
         let sum = value * length
 
-        let array = new Array(length).fill(value)
+        let values = new Array(length).fill(value)
 
         let derivative = nDerivative > 0 ? new Average({ value: 0, length, nDerivative: nDerivative - 1 }) : null
 
@@ -27,7 +27,7 @@ export default class Average {
             delta,
             sum,
 
-            array,
+            values,
 
             nDerivative,
             derivative,
@@ -40,15 +40,15 @@ export default class Average {
 
         value = value || 0
 
-        let { value:valueOld, average:averageOld, length, sum, array, derivative } = this
+        let { value:valueOld, average:averageOld, length, sum, values, derivative } = this
 
         let delta = value - valueOld
 
-        sum += -array.shift() + value
+        sum += -values.shift() + value
 
         let average = sum / length
 
-        array.push(value)
+        values.push(value)
 
         if (derivative)
             derivative.setNewValue(delta)
@@ -70,7 +70,7 @@ export default class Average {
 	}
 
     get newValue() { return this.value }
-    
+
     set newValue(value) { this.setNewValue(value) }
 
 	through(threshold) {
