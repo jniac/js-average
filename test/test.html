@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="module">
+
+            import Average from '../src/Average.js'
+
+            let a = new Average()
+
+            a.setNewValue(8)
+            a.setNewValue(12)
+
+            console.log(a.through(6))
+            console.log(a.through(10))
+
+            a.setNewValue(6)
+            console.log(a.through(10))
+            
+            console.log(a)
+
+        </script>
+    </body>
+</html>
